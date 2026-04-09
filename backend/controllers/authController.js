@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 // Generate JWT
 
 const generateToken=(res,payload)=>{
-    const token=jwt.sign(payload,process.env.JWT_SECRET,{expired:"id"});
+    const token=jwt.sign(payload,process.env.JWT_SECRET,{expiresIn:"1d"});
     res.cookie("token",token,{
         httpOnly:true,
         secure:process.env.NODE_ENV === "production",
@@ -27,10 +27,10 @@ export const registerUser=async(req,res)=>{
         }
         const hashedPassword=await bcrypt.hash(password,10);
         const user=await User.create({name,email,password:hashedPassword});
-        return res.json({message:"User registered successfully",success:true})
+        return res.status(201).json({message:"User registered successfully",success:true})
      } catch (error){
         console.log(error.message);
-        return res.json({message:"Internal server error",success:false})
+        return res.status(400).json({message:"Internal server error",success:false})
     }
 }
 
@@ -100,11 +100,17 @@ export const adminLogin=async(req,res)=>{
         maxAge:24*60*60*1000
         });
 
-        return res.json({message:"Admin logged in successfully",success:true})
+        return res.json({
+            success:true,
+           
+        message:"Admin logged in successfully",
+    admin:{
+        admin:adminEmail,},
+    });
 
     } catch (error) {
         console.log(error.message);
-        return res.json({message:"Internal server error",success:false})
+        return res.json({message:"Internal server error",})
     }
 }
 
@@ -135,3 +141,13 @@ export const getProfile=async(req,res)=>{
 
     }
 }
+
+export const isAuth=async(req,res)=>{
+    try{
+        const {id}=req.user;
+        const user=await User.findById(id).select("-password");
+        res.json({success:true,user})
+    }catch (error) {
+        return res.json({message:"Internal server error",success:false})
+    }
+};
