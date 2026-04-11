@@ -36,7 +36,7 @@ const MenuDetails = () => {
       <div className="container mx-auto px-4 py-6">
         <button
           onClick={() => navigate("/menu")}
-          className="flex items-center gap-2 text-gray-600 hover:text-yellow-500 transition-colors group"
+          className="flex items-center gap-2 text-gray-600 hover:text-purple-500 transition-colors group"
         >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           <span className="font-semibold">Back to menu</span>
@@ -82,8 +82,8 @@ const MenuDetails = () => {
                 {menu.name}
               </h1>
               <div className="flex items-baseline gap-3">
-                <span className="text-4xl font-bold text-yellow-500">
-                  ${menu.price}
+                <span className="text-4xl font-bold text-purple-400">
+                  ₹{menu.price}
                 </span>
                 <span className="text-gray-500 text-lg">per item</span>
               </div>
@@ -98,20 +98,20 @@ const MenuDetails = () => {
               </p>
             </div>
             {/* Total and Add to Cart */}
-            <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-2xl p-6 shadow-xl">
+            <div className="bg-gradient-to-r from-purple-400 to-purple-500 rounded-2xl p-6 shadow-xl">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-white text-lg font-semibold">
                   Total Amount
                 </span>
-                <span className="text-white text-3xl font-bold">$20</span>
+                <span className="text-white text-3xl font-bold">₹100</span>
               </div>
 
               <button
                 disabled={!menu.isAvailable}
-                onClick={() => addToCart(menu._id)}
+                onClick={()=>addToCart(menu._id)}
                 className={` cursor-pointer w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${
                   menu.isAvailable
-                    ? "bg-white text-yellow-600 hover:bg-gray-50 hover:scale-105 active:scale-95 shadow-lg"
+                    ? "bg-white text-purple-600 hover:bg-gray-50 hover:scale-105 active:scale-95 shadow-lg"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
               >

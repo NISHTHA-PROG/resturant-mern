@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 import toast from "react-hot-toast";
 
 const Cart = () => {
-  const { cart, totalPrice, navigate, axios, fetchCartData } =
+  const { cart, totalPrice, navigate,  axios, fetchCartData } =
     useContext(AppContext);
 
   if (!cart || !cart.items || cart.items.length === 0) {
@@ -17,7 +17,8 @@ const Cart = () => {
     );
   }
 
-  const removeFromCart = async (menuId) => {
+  console.log("cart", cart);
+  async function removeFromCart(menuId) {
     try {
       const { data } = await axios.delete(`/api/cart/remove/${menuId}`);
       if (data.success) {
@@ -27,7 +28,7 @@ const Cart = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   return (
     <div className="max-w-4xl mx-auto mt-10 bg-white shadow-lg rounded-2xl p-6">
@@ -45,7 +46,7 @@ const Cart = () => {
           </thead>
 
           <tbody>
-            {cart.items.map((item) => (
+            {cart?.items?.map((item) => (
               <tr key={item._id} className="border-t hover:bg-gray-50">
                 <td className="py-3 px-4 flex items-center space-x-3">
                   <img
@@ -61,10 +62,10 @@ const Cart = () => {
                   {item.quantity}
                 </td>
                 <td className="py-3 px-4 text-center text-gray-700">
-                  $. {item.menuItem.price}
+                  ₹{item.menuItem.price}
                 </td>
                 <td className="py-3 px-4 text-center text-gray-700 font-semibold">
-                  $. {item.menuItem.price * item.quantity}
+                  ₹{item.menuItem.price * item.quantity}
                 </td>
                 <td className="py-3 px-4 text-center text-gray-700 font-semibold">
                   <X onClick={() => removeFromCart(item.menuItem._id)} />
@@ -76,7 +77,7 @@ const Cart = () => {
       </div>
       <div className="flex justify-between items-center mt-6">
         <h3 className="text-xl font-semibold">
-          Total: <span className="text-green-600">${totalPrice}</span>
+          Total: <span className="text-green-600">₹{totalPrice}</span>
         </h3>
         <button
           onClick={() => navigate("/checkout")}
@@ -90,8 +91,3 @@ const Cart = () => {
 };
 export default Cart;
 
-/*const Cart = () => {
-    return <div>Cart</div>
-};
-
-export default Cart;*/

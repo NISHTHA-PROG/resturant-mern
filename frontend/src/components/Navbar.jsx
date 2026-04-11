@@ -5,7 +5,7 @@ import { Calendar, LogOut, Package, ShoppingCart, UserCircle } from "lucide-reac
 import toast from "react-hot-toast";
 
 const Navbar = () => {
-  const {navigate,user,setUser,axios}=useContext(AppContext);
+  const {navigate,user,setUser,axios,cartCount}=useContext(AppContext);
   const [isMenuOpen,setIsMenuOpen]=useState(false)
   const [isProfileOpen,setIsProfileOpen]=useState(false)
 
@@ -23,7 +23,7 @@ const Navbar = () => {
     }
  };
   return(
-     <nav className="bg-purple-400 shadow-md sticky top-0 z-50 py-3">
+     <nav className="bg-black shadow-md sticky top-0 z-50 py-3">
 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between h-16">
@@ -36,17 +36,24 @@ const Navbar = () => {
 
         {/* Center -Menu Items {DESKTOP} */}
       <div className="flex items-center space-x-8">
-      <Link to={"/"} className="text-green-800 hover:text-blue-600
+      <Link to={"/"} className="text-white hover:text-purple-300 text-2xl
        transition-colors font-medium"
             >Home</Link>
 
             <Link 
             to={"/menu" }
-            className="text-green-800 hover:text-blue-600
+            className="text-white hover:text-purple-300 text-2xl
        transition-colors font-medium"
             >Menus</Link>
 
-            <Link to={"/contact"} className="text-green-800 hover:text-blue-600
+             <Link
+              to={"/book-table"}
+              className="text-white hover:text-purple-300 transition-colors font-medium text-2xl"
+            >
+              Book Table
+            </Link>
+
+            <Link to={"/contact"} className="text-white hover:text-purple-300 text-2xl
        transition-colors font-medium"
             >Contact</Link>
       </div>
@@ -54,16 +61,16 @@ const Navbar = () => {
       {/* Right- cart & Login/Profile */}
     
       <div className="flex items-center space-x-4">
-        <button onClick={()=>navigate("/cart")} className="relative p-2 hover:bg-gray-100 rounded-lg
+        <button onClick={()=>navigate("/cart")} className="relative p-2 hover:bg-purple-500 rounded-lg
          transition-colors">
-          <ShoppingCart size={22} className="text-gray-700"/> 
-          <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center
-           justify-center font-medium">0</span>
+          <ShoppingCart size={22} className="text-white"/> 
+          <span className="absolute -top-1 -right-1 bg-green-400 text-white text-xs rounded-full w-5 h-5 flex items-center
+           justify-center font-medium">{cartCount>0 ? cartCount :0}</span>
         </button>
                <div className="hidden md:block">
            {
             user?(<div className="relative">
-              <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors "
+              <button className="p-2 bg-white hover:bg-gray-300 rounded-lg transition-colors "
               onMouseEnter={()=>setIsProfileOpen(true)}
               onMouseLeave={()=>setIsProfileOpen(false)}
               >
@@ -106,31 +113,39 @@ const Navbar = () => {
           ):(
               <button onClick={()=> navigate("/login")}
               className="bg-white text-purple-500 px-6 py-2 rounded-lg
-               hover:bg-purple-700 transition-colors font-medium cursor-pointer">
+               hover:bg-purple-200 transition-colors font-medium cursor-pointer">
                 Login</button>
             )
            }
       
                </div>
-      </div>
-      </div>
-      {/* MObile-menu */}
-      {isMenuOpen&&(
-        <div className="md:hidden py-4 border-t border-gray-200">
+               </div>
+                 </div>
+              {/* MObile-menu */}
+                   {isMenuOpen&&(
+             <div className="md:hidden py-4 border-t border-gray-200">
 
           <div className="flex flex-col space-y-3">
-            <Link to={"/"} className="text-green-800 hover:text-blue-600
-       transition-colors font-medium"
+            <Link to={"/"} className="text-white hover:text-purple-300 text-xl
+              transition-colors font-medium"
             >Home</Link>
 
             <Link 
             to={"/menu" }
-            className="text-green-800 hover:text-blue-600
+            className="text-white hover:text-purple-300 text-xl
        transition-colors font-medium"
             >Menus</Link>
 
-            <Link to={"/contact"} className="text-green-800 hover:text-blue-600
-       transition-colors font-medium"
+            <Link
+              to={"/book-table"}
+              className="text-white hover:text-purple-300 text-xl transition-colors font-medium"
+            >
+              Book Table
+            </Link>
+
+            <Link to={"/contact"}
+             className="text-white hover:text-purple-300 text-xl
+                    transition-colors font-medium"
             >Contact
             </Link>
            { user?(<div className="relative">
@@ -174,8 +189,8 @@ const Navbar = () => {
           </div >
           ):(
               <button onClick={()=> navigate("/login")}
-              className="bg-white text-purple-600 px-6 py-2 rounded-lg
-               hover:bg-orange-600 transition-colors font-medium cursor-pointer">
+              className="bg-white text-purple-500 px-6 py-2 rounded-lg
+               hover:bg-purple-200 transition-colors font-medium cursor-pointer">
                 Login</button>
             )
            }

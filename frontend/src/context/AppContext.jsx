@@ -5,6 +5,7 @@ export const AppContext = createContext();
 import axios from "axios";
 axios.defaults.baseURL=import.meta.env.VITE_BASE_URL;
 axios.defaults.withCredentials = true;
+import {toast} from "react-hot-toast"
 
 export const AppContextProvider = ({ children }) => {
  const navigate = useNavigate();
@@ -13,6 +14,62 @@ export const AppContextProvider = ({ children }) => {
  const [admin, setAdmin] = useState(null);
  const[categories,setCategories]=useState([]);
  const[menus,setMenus]=useState([]);
+ const [cart,setCart]=useState([]);
+const [totalPrice,setTotalPrice]=useState(0);
+
+ const fetchCartData = async () => {
+    try {
+      const { data } = await axios.get("/api/cart/get");
+      if (data.success) {
+        setCart(data.cart);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+useEffect(()=>{
+   let total=0;
+   if(cart?.items){
+       total =cart.items.reduce((sum,item) =>sum+item.menuItem.price * item.quantity,0);
+   }
+   setTotalPrice(total);
+},[cart]);
+const cartCount = cart?.items?.reduce(
+    (acc, item) => acc + item.quantity,
+    0 || 0
+  );
+const addToCart = async (menuId) => {
+    try {
+      const { data } = await axios.post("/api/cart/add", {
+        menuId,
+        quantity: 1,
+      });
+      if (data.success) {
+        toast.success(data.message);
+        fetchCartData();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.error("Add to cart error:", error);
+      toast.error("Something went wrong!");
+    }
+  };
+
+  const removeFromCart = async (menuId)=>{
+    try{
+      const {data}=await axios.delete(`/api/cart/remove/${menuId}`);
+      if (data.success){
+        toast.success(data.message);
+        fetchCartData();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error){
+      console.error("Remove from cart error:",error);
+      toast.error("Something went wrong!");
+    }
+  };
 
  const fetchCategories=async()=>{
    try{
@@ -34,7 +91,6 @@ export const AppContextProvider = ({ children }) => {
   const fetchMenus=async()=>{
    try{
       const {data}=await axios.get("/api/menu/all");
-      console.log("dataa", data)
       
       if(data.success){
          setMenus(data.menuItems);
@@ -65,6 +121,7 @@ export const AppContextProvider = ({ children }) => {
    isAuth();
    fetchCategories();
    fetchMenus();
+   fetchCartData();
  },[]);
  const value = { 
    navigate,
@@ -72,7 +129,19 @@ export const AppContextProvider = ({ children }) => {
    setLoading,
    user,
    setUser, 
-   axios, admin, setAdmin,categories, fetchCategories, menus, fetchMenus
+   axios,
+   admin,
+   setAdmin,
+   categories,
+    fetchCategories, 
+     menus,
+   fetchMenus, 
+    addToCart,
+   totalPrice,
+   cartCount,
+   fetchCartData,
+   cart,removeFromCart
+   
 };
 
 return (

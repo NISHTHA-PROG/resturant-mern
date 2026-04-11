@@ -38,7 +38,7 @@ const Checkout = () => {
         <textarea
           rows={5}
           value={address}
-          placeholder="enter your full address"
+          placeholder="Enter your full address"
           onChange={(e) => setAddress(e.target.value)}
           className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-green-500 focus:outline-none resize-none"
         ></textarea>
@@ -54,7 +54,7 @@ const Checkout = () => {
             <p className="flex justify-between text-lg font-medium text-gray-700">
               <span>Total Amount:</span>
               <span className="text-green-600 font-semibold">
-                $. {totalPrice}
+                ₹{totalPrice}
               </span>
             </p>
           </div>

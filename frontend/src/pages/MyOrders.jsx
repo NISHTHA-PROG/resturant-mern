@@ -5,6 +5,7 @@ import { AppContext } from "../context/AppContext";
 const MyOrders = () => {
   const { axios } = useContext(AppContext);
   const [orders, setOrders] = useState([]);
+  
 
   const fetchMyOrders = async () => {
     try {
@@ -60,7 +61,7 @@ const MyOrders = () => {
                   {order.paymentMethod}
                 </p>
                 <p>
-                  <span className="font-medium">Total:</span> $.{" "}
+                  <span className="font-medium">Total:</span> ₹{" "}
                   {order.totalAmount}
                 </p>
                 <p>

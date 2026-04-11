@@ -33,7 +33,7 @@ const BookTable = () => {
     }
   };
   return (
-    <div className="max-w-3xl mx-auto mt-10 bg-white shadow-lg rounded-2xl p-6">
+    <div className="max-w-3xl mx-auto mt-10 bg-purple-400 shadow-lg rounded-2xl p-6">
       <h2 className="text-2xl font-semibold text-center mb-6">Book a Table</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
