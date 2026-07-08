@@ -2,24 +2,29 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { Search, X } from "lucide-react";
 import MenuCard from "../components/MenuCard";
+import { useParams } from "react-router-dom";
 const Menu = () => {
-  const { menus } = useContext(AppContext);
+  const { menus,categories } = useContext(AppContext);
+  const { categoryId}=useParams();
+  const categoryName= categories?.find((cat)=>cat._id===categoryId)?.name;
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredMenus, setFilteredMenus] = useState([]);
 
   useEffect(() => {
-    if (searchQuery === "") {
-      setFilteredMenus(menus);
-    } else {
-      const filtered = menus.filter((menu) =>
-        menu.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      setFilteredMenus(filtered);
+    let tempMenus = menus;
+    if(categoryId){
+      tempMenus=tempMenus.filter((menu)=>
+      menu.category===categoryId || menu.category?._id===categoryId);
     }
-  }, [searchQuery, menus]);
-  const handleClearSearch = () => {
-    setSearchQuery("");
-  };
+    if (searchQuery !== "") {
+      tempMenus=tempMenus.filter((menu)=>
+      menu.name.toLowerCase().includes(searchQuery.toLowerCase()));
+    }
+      setFilteredMenus(tempMenus);
+    },[searchQuery,menus,categoryId]);
+    const handleClearSearch = () =>{
+      setSearchQuery("");
+    };
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12">
       <div className="container mx-auto px-4">
@@ -88,8 +93,13 @@ const Menu = () => {
         ) : (
           <div className="text-center">
             <p className="text-gray-600">
-              No results found for "{searchQuery}"
-            </p>
+  No results found for{" "}
+  {searchQuery
+    ? `"${searchQuery}"`
+    : categoryName
+    ? `"${categoryName}"`
+    : "this category"}
+</p>
             <button
               onClick={handleClearSearch}
               className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full font-semibold transition-colors duration-300"

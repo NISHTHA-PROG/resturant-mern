@@ -69,21 +69,17 @@ const Navbar = () => {
         </button>
                <div className="hidden md:block">
            {
-            user?(<div className="relative">
-              <button className="p-2 bg-white hover:bg-gray-300 rounded-lg transition-colors "
-              onMouseEnter={()=>setIsProfileOpen(true)}
-              onMouseLeave={()=>setIsProfileOpen(false)}
-              >
-                <UserCircle size={30} className="text-gray-700"/>
-              </button>
+            user?(<div
+  className="relative"
+  onMouseEnter={() => setIsProfileOpen(true)}
+  onMouseLeave={() => setIsProfileOpen(false)}
+>
+  <button className="p-2 bg-white hover:bg-gray-300 rounded-lg transition-colors">
+    <UserCircle size={30} className="text-gray-700" />
+  </button>
 
-              {
-                isProfileOpen&&(
-                  <div
-                     onMouseEnter={()=>setIsProfileOpen(true)}
-                     onMouseLeave={()=>setIsProfileOpen(false)}
-                     className="absolute right-0 mt-2 w-48 bg-white rounded-lg
-                      shadow-lg py-2 border border-gray-100">
+  {isProfileOpen && (
+    <div className="absolute right-0 top full mt-0 w-48 bg-white rounded-lg shadow-lg py-2 border border-gray-100">
 
                         <Link to={"/my-bookings"}
                           className="flex items-center px-4 py-2
@@ -110,12 +106,21 @@ const Navbar = () => {
 
 
           </div >
-          ):(
-              <button onClick={()=> navigate("/login")}
-              className="bg-white text-purple-500 px-6 py-2 rounded-lg
-               hover:bg-purple-200 transition-colors font-medium cursor-pointer">
-                Login</button>
-            )
+         ):(
+  <div className="flex gap-2">
+    <button
+      onClick={() => navigate("/login")}
+      className="bg-white text-purple-500 px-6 py-2 rounded-lg hover:bg-purple-200 transition-colors font-medium cursor-pointer">
+      User Login
+    </button>
+
+    <button
+      onClick={() => navigate("/admin")}
+      className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium cursor-pointer">
+      Admin Login
+    </button>
+  </div>
+)
            }
       
                </div>
@@ -148,22 +153,17 @@ const Navbar = () => {
                     transition-colors font-medium"
             >Contact
             </Link>
-           { user?(<div className="relative">
-              <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors "
-              onMouseEnter={()=>setIsProfileOpen(true)}
-              onMouseLeave={()=>setIsProfileOpen(false)}
-              >
-                <UserCircle size={30} className="text-gray-700"/>
-              </button>
+           { user?(<div
+  className="relative"
+  onMouseEnter={() => setIsProfileOpen(true)}
+  onMouseLeave={() => setIsProfileOpen(false)}
+>
+  <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+    <UserCircle size={30} className="text-gray-700" />
+  </button>
 
-              {
-                isProfileOpen&&(
-                  <div
-                     onMouseEnter={()=>setIsProfileOpen(true)}
-                     onMouseLeave={()=>setIsProfileOpen(false)}
-                     className="absolute right-0 mt-2 w-48 bg-white rounded-lg
-                      shadow-lg py-2 border border-gray-100">
-
+  {isProfileOpen && (
+    <div className="absolute right-0 top-full mt-0 w-48 bg-white rounded-lg shadow-lg py-2 border border-gray-100">
                         <Link to={"/my-bookings"}
                           className="flex items-center px-4 py-2
                            text-gray-700 hover:bg-gray-100 transition-colors">
@@ -188,11 +188,20 @@ const Navbar = () => {
 
           </div >
           ):(
-              <button onClick={()=> navigate("/login")}
-              className="bg-white text-purple-500 px-6 py-2 rounded-lg
-               hover:bg-purple-200 transition-colors font-medium cursor-pointer">
-                Login</button>
-            )
+  <div className="flex flex-col gap-2">
+    <button
+      onClick={() => navigate("/login")}
+      className="bg-white text-purple-500 px-6 py-2 rounded-lg hover:bg-purple-200 transition-colors font-medium cursor-pointer">
+      User Login
+    </button>
+
+    <button
+      onClick={() => navigate("/admin")}
+      className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium cursor-pointer">
+      Admin Login
+    </button>
+  </div>
+)
            }
 
 

@@ -11,7 +11,7 @@ export const AppContextProvider = ({ children }) => {
  const navigate = useNavigate();
  const [loading, setLoading] = useState(false);
  const [user, setUser] = useState(null);
- const [admin, setAdmin] = useState(null);
+ const [admin, setAdmin] = useState(null)
  const[categories,setCategories]=useState([]);
  const[menus,setMenus]=useState([]);
  const [cart,setCart]=useState([]);
@@ -52,7 +52,7 @@ const addToCart = async (menuId) => {
       }
     } catch (error) {
       console.error("Add to cart error:", error);
-      toast.error("Something went wrong!");
+      toast.error("Please Login to continue!");
     }
   };
 
@@ -117,11 +117,18 @@ const addToCart = async (menuId) => {
     }
  };
 
+
  useEffect(()=>{
    isAuth();
    fetchCategories();
    fetchMenus();
    fetchCartData();
+ },[]);
+ useEffect(() =>{
+  const savedAdmin=localStorage.getItem("admin");
+  if (savedAdmin === "true"){
+    setAdmin(true);
+  }
  },[]);
  const value = { 
    navigate,

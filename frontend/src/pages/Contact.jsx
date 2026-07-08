@@ -68,7 +68,7 @@ const Contact = () => {
 
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="bg-orange-500 p-3 rounded-lg">
+                <div className="bg-purple-500 p-3 rounded-lg">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -84,7 +84,7 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="bg-orange-500 p-3 rounded-lg">
+                <div className="bg-purple-500 p-3 rounded-lg">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -95,7 +95,7 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="bg-orange-500 p-3 rounded-lg">
+                <div className="bg-purple-500 p-3 rounded-lg">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -106,7 +106,7 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="bg-orange-500 p-3 rounded-lg">
+                <div className="bg-purple-500 p-3 rounded-lg">
                   <Clock className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -155,7 +155,7 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="Your Name"
                 />
               </div>
@@ -169,7 +169,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="your@email.com"
                 />
               </div>
@@ -183,7 +183,7 @@ const Contact = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="+1 (555) 123-4567"
                 />
               </div>
@@ -197,7 +197,7 @@ const Contact = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="Reservation, Inquiry, Feedback..."
                 />
               </div>
@@ -211,14 +211,14 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows="5"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="Tell us what's on your mind..."
                 ></textarea>
               </div>
 
               <button
                 onClick={handleSubmit}
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center space-x-2"
+                className="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center space-x-2"
               >
                 <Send className="w-5 h-5" />
                 <span>Send Message</span>

@@ -27,7 +27,7 @@ const AdminLogin = () => {
       
       if (data.success) {
         setAdmin(true);
-        localStorage.setItem("admin",JSON.stringify(data.admin));
+        localStorage.setItem("admin","true");
         toast.success(data.message);
         navigate("/admin");
       } else {

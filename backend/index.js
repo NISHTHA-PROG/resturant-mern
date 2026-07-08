@@ -10,6 +10,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
 import dotenv from "dotenv";
 import connectCloudinary from "./config/cloudinary.js";
+import dashboardRoutes from "./routes/dashboardRoutes.js"
 dotenv.config();
 console.log("ENV CHECK:",
     process.env.MONGO_URL);
@@ -40,6 +41,7 @@ app.use("/api/menu",menuRoutes)
 app.use("/api/cart",cartRoutes)
 app.use("/api/order",orderRoutes)
 app.use("/api/booking",bookingRoutes)
+app.use("/api/dashboard",dashboardRoutes)
 
 
 app.listen(PORT,()=>{

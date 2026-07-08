@@ -1,95 +1,97 @@
+const testimonials = [
+  {
+    id: 1,
+    name: "Riya Sharma",
+    role: "Food Blogger",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300",
+    review:
+      "The food was absolutely delicious and beautifully presented. Booking a table was quick and hassle-free. Highly recommended!",
+    rating: "⭐ 5.0",
+  },
+  {
+    id: 2,
+    name: "Aman Verma",
+    role: "Regular Customer",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300",
+    review:
+      "Excellent service, cozy ambience, and amazing food. The online ordering system is fast and very convenient.",
+    rating: "⭐ 4.9",
+  },
+  {
+    id: 3,
+    name: "Priya Gupta",
+    role: "Verified Customer",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300",
+    review:
+      "From reservation to dessert, everything was perfect. Velvet Spoon has become my favorite restaurant.",
+    rating: "⭐ 5.0",
+  },
+];
+
 export default function Testimonial() {
-    return (
-        <div className="my-12 flex flex-wrap items-center justify-center gap-6 pt-14">
-            <div className="text-sm w-80 border border-gray-200 pb-6 rounded-lg bg-white shadow-[0px_4px_15px_0px] shadow-black/5">
-                <div className="flex flex-col items-center px-5 py-4 relative">
-                    <img className="h-24 w-24 absolute -top-14 rounded-full" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200" alt="userImage1" />
-                    <div className="pt-8 text-center">
-                        <h1 className="text-lg font-medium text-gray-800">Donald Jackman</h1>
-                        <p className="text-gray-800/80">Content Creator</p>
-                    </div>
-                </div>
-                <p className="text-gray-500 px-6 text-center">I've been using prebuiltui for nearly two years, primarily for web pages and it has been incredibly user-friendly, making my work much easier.</p>
-                <div className="flex justify-center pt-4">
-                    <div className="flex gap-0.5">
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        
-            <div className="text-sm w-80 border border-gray-200 pb-6 rounded-lg bg-white shadow-[0px_4px_15px_0px] shadow-black/5">
-                <div className="flex flex-col items-center px-5 py-4 relative">
-                    <img className="h-24 w-24 absolute -top-14 rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200" alt="userImage2" />
-                    <div className="pt-8 text-center">
-                        <h1 className="text-lg font-medium text-gray-800">Richard Nelson</h1>
-                        <p className="text-gray-800/80">Instagram Influencer</p>
-                    </div>
-                </div>
-                <p className="text-gray-500 px-6 text-center">I've been using this website for nearly a year, primarily for web apps and it has been incredibly amazing, making my work much easier.</p>
-                <div className="flex justify-center pt-4">
-                    <div className="flex gap-0.5">
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        
-            <div className="text-sm w-80 border border-gray-200 pb-6 rounded-lg bg-white shadow-[0px_4px_15px_0px] shadow-black/5">
-                <div className="flex flex-col items-center px-5 py-4 relative">
-                    <img className="h-24 w-24 absolute -top-14 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&h=200&auto=format&fit=crop" alt="userImage3" />
-                    <div className="pt-8 text-center">
-                        <h1 className="text-lg font-medium text-gray-800">James Washington</h1>
-                        <p className="text-gray-800/80">Marketing Manager</p>
-                    </div>
-                </div>
-                <p className="text-gray-500 px-6 text-center">I've been using this awesome website for nearly two years, primarily for my saas app and it has been incredibly user-friendly, making my work much easier.</p>
-                <div className="flex justify-center pt-4">
-                    <div className="flex gap-0.5">
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                        <svg width="18" height="18" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.525.464a.5.5 0 0 1 .95 0l2.107 6.482a.5.5 0 0 0 .475.346h6.817a.5.5 0 0 1 .294.904l-5.515 4.007a.5.5 0 0 0-.181.559l2.106 6.483a.5.5 0 0 1-.77.559l-5.514-4.007a.5.5 0 0 0-.588 0l-5.514 4.007a.5.5 0 0 1-.77-.56l2.106-6.482a.5.5 0 0 0-.181-.56L.832 8.197a.5.5 0 0 1 .294-.904h6.817a.5.5 0 0 0 .475-.346z" fill="#FF532E"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Section Heading */}
+        <div className="text-center mb-16">
+          <span className="bg-purple-100 text-purple-700 px-5 py-2 rounded-full font-semibold text-sm">
+            Customer Reviews
+          </span>
+
+          <h2 className="text-4xl font-bold text-gray-900 mt-5">
+            What Our Guests Say
+          </h2>
+
+          <p className="max-w-2xl mx-auto mt-4 text-gray-600 leading-7">
+            At <span className="font-semibold text-purple-700">Velvet Spoon</span>,
+            every meal is crafted with passion and served with excellence.
+            Here's what our valued guests have to say about their dining and
+            reservation experience.
+          </p>
         </div>
-    );
-};
+
+        {/* Cards */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+          {testimonials.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-8 text-center"
+            >
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-24 h-24 rounded-full mx-auto object-cover border-4 border-purple-200"
+              />
+
+              <h3 className="mt-5 text-xl font-bold text-gray-900">
+                {item.name}
+              </h3>
+
+              <p className="text-purple-600 font-medium">{item.role}</p>
+
+              <p className="mt-4 text-gray-600 leading-7">
+                "{item.review}"
+              </p>
+
+              <div className="mt-6">
+                <p className="text-orange-500 text-lg font-semibold">
+                  {item.rating}
+                </p>
+
+                <div className="text-orange-500 text-xl mt-2">
+                  ⭐⭐⭐⭐⭐
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </section>
+  );
+}
